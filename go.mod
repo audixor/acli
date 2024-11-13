@@ -1,4 +1,4 @@
-module easycli
+module github.com/tenebris-tech/easycli
 
 go 1.23.2
 
