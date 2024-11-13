@@ -45,3 +45,4 @@ func (c *EasyCLI) Execute() {
 		fmt.Println(err)
 	}
 }
+
