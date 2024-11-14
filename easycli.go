@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license.
 // Please see the LICENSE file for details.
 
-package easycli
+package acli
 
 import (
 	"fmt"
@@ -10,12 +10,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type EasyCLI struct {
+type ACLI struct {
 	rootCmd *cobra.Command
 }
 
-func New(name string, short string, long string) *EasyCLI {
-	return &EasyCLI{
+func New(name string, short string, long string) *ACLI {
+	return &ACLI{
 		rootCmd: &cobra.Command{
 			Use:   name,
 			Short: short,
@@ -24,25 +24,24 @@ func New(name string, short string, long string) *EasyCLI {
 	}
 }
 
-func (c *EasyCLI) AddCmd(newCmd func() *cobra.Command) {
+func (c *ACLI) AddCmd(newCmd func() *cobra.Command) {
 	c.rootCmd.AddCommand(newCmd())
 }
 
-func (c *EasyCLI) AddBoolFlag(name string, value bool, usage string) {
+func (c *ACLI) AddBoolFlag(name string, value bool, usage string) {
 	c.rootCmd.PersistentFlags().Bool(name, value, usage)
 }
 
-func (c *EasyCLI) AddStringFlag(name string, value string, usage string) {
+func (c *ACLI) AddStringFlag(name string, value string, usage string) {
 	c.rootCmd.PersistentFlags().String(name, value, usage)
 }
 
-func (c *EasyCLI) AddIntFlag(name string, value int, usage string) {
+func (c *ACLI) AddIntFlag(name string, value int, usage string) {
 	c.rootCmd.PersistentFlags().Int(name, value, usage)
 }
 
-func (c *EasyCLI) Execute() {
+func (c *ACLI) Execute() {
 	if err := c.rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 	}
 }
-
