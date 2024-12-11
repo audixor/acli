@@ -1,6 +1,7 @@
+//
 // Copyright (c) 2024 Tenebris Technologies Inc.
-// Use of this source code is governed by the MIT license.
-// Please see the LICENSE file for details.
+// Please see the LICENSE file for details
+//
 
 package acli
 
